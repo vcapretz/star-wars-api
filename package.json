@@ -1,7 +1,7 @@
 {
-  "name": "beer-api",
+  "name": "star-wars-api",
   "version": "0.0.1",
-  "description": "Find points of sale near your location to get beer!",
+  "description": "A CRUD for your Star Wars world",
   "main": "server.js",
   "scripts": {
     "lint": "xo --quiet",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vcapretz/beer-api.git"
+    "url": "git+https://github.com/vcapretz/star-wars-api.git"
   },
   "keywords": [
     "Node.js",
@@ -22,9 +22,9 @@
   "author": "vcapretz",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/vcapretz/beer-api/issues"
+    "url": "https://github.com/vcapretz/star-wars-api/issues"
   },
-  "homepage": "https://github.com/vcapretz/beer-api#readme",
+  "homepage": "https://github.com/vcapretz/star-wars-api#readme",
   "devDependencies": {
     "blipp": "^2.3.0",
     "code": "^4.1.0",
@@ -33,7 +33,6 @@
     "xo": "^0.18.2"
   },
   "dependencies": {
-    "geojson-utils": "^1.1.0",
     "glue": "^4.2.0",
     "hapi": "^16.5.2",
     "joi": "^10.6.0",

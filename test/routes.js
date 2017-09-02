@@ -30,14 +30,14 @@ describe('Tests for API', () => {
 
     it('should return http status 200 for index route', done => {
         server.inject('/', response => {
-            expect(response.result.result).to.equal('Index route for the API, see "/pdv"');
+            expect(response.result.result).to.equal('Index route for the API, see "/people"');
             expect(response.statusCode).to.equal(200);
             done();
         });
     });
 
     it('should return http status 404 for an unkown route', done => {
-        server.inject('/zxventures', response => {
+        server.inject('/gupy', response => {
             expect(response.statusCode).to.equal(404);
             done();
         });

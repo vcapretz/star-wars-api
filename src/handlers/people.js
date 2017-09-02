@@ -56,15 +56,16 @@ module.exports.create = {
 module.exports.edit = {
     handler: async (request, reply) => {
         let data;
-
+        const { name } = request.payload;
+ 
         try {
-            data = await People.create(request.payload);
+            data = await People.update({ name }, request.payload);
         } catch (err) {
-            return reply({ result: 'it was not possible to create your document', err })
+            return reply({ result: 'it was not possible to update your document', err })
                 .code(400);
         }
 
-        return reply({ result: { message: 'success on creating new document', data } }).code(201);
+        return reply({ result: { message: 'success on updating', data } }).code(201);
     },
     validate: {
         payload: peoplePostPayloadValidation
