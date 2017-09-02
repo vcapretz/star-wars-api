@@ -17,8 +17,8 @@ const speciesPostPayloadValidation = {
     name: Joi.string().required(),
     skin_colors: Joi.string().required(),
     url: Joi.string().required(),
-    people: Joi.array().required(),
-    films: Joi.array().required()
+    people: Joi.array().optional(),
+    films: Joi.array().optional()
     /* eslint-enable camelcase */
 };
 

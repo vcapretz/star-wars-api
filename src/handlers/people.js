@@ -9,7 +9,7 @@ const peoplePostPayloadValidation = {
     created: Joi.string().optional(),
     edited: Joi.string().optional(),
     eye_color: Joi.string().required(),
-    films: Joi.array().required(),
+    films: Joi.array().optional(),
     gender: Joi.string().required(),
     hair_color: Joi.string().required(),
     height: Joi.string().required(),
@@ -17,10 +17,10 @@ const peoplePostPayloadValidation = {
     mass: Joi.string().required(),
     name: Joi.string().required(),
     skin_color: Joi.string().required(),
-    species: Joi.array().required(),
-    starships: Joi.array().required(),
+    species: Joi.array().optional(),
+    starships: Joi.array().optional(),
     url: Joi.string().required(),
-    vehicles: Joi.array().required()
+    vehicles: Joi.array().optional()
     /* eslint-enable camelcase */
 };
 
