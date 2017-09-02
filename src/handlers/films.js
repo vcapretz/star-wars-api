@@ -11,7 +11,7 @@ const filmsPostPayloadValidation = {
     director: Joi.string().required(),
     episode_id: Joi.string().required(),
     opening_crawl: Joi.string().required(),
-    planets: Joi.array().reqoptionaluired(),
+    planets: Joi.array().optional(),
     species: Joi.array().optional(),
     starships: Joi.array().optional(),
     vehicles: Joi.array().optional(),
