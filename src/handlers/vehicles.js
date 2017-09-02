@@ -1,38 +1,38 @@
 const Joi = require('joi');
 const rp = require('request-promise');
 
-const { People } = require('../models');
+const { Vehicles } = require('../models');
 
-const peoplePostPayloadValidation = {
+const vehiclesPostPayloadValidation = {
     /* eslint-disable camelcase */
-    birth_year: Joi.string().required(),
     created: Joi.string().optional(),
     edited: Joi.string().optional(),
-    eye_color: Joi.string().required(),
-    films: Joi.array().required(),
-    gender: Joi.string().required(),
-    hair_color: Joi.string().required(),
-    height: Joi.string().required(),
-    homeworld: Joi.string().required(),
-    mass: Joi.string().required(),
+    cargo_capacity: Joi.string().required(),
+    consumables: Joi.string().required(),
+    cost_in_credits: Joi.string().required(),
+    crew: Joi.string().required(),
+    length: Joi.string().required(),
+    manufacturer: Joi.string().required(),
+    max_atmosphering_speed: Joi.string().required(),
+    model: Joi.string().required(),
     name: Joi.string().required(),
-    skin_color: Joi.string().required(),
-    species: Joi.array().required(),
-    starships: Joi.array().required(),
+    passengers: Joi.string().required(),
+    vehicle_class: Joi.string().required(),
     url: Joi.string().required(),
-    vehicles: Joi.array().required()
+    films: Joi.array().required(),
+    pilots: Joi.array().required()
     /* eslint-enable camelcase */
 };
 
 module.exports.getAll = {
     handler: async (request, reply) => {
-        return reply({ items: await People.find() });
+        return reply({ items: await Vehicles.find() });
     }
 };
 
 module.exports.getById = {
     handler: async (request, reply) => {
-        const getOne = await People.findById(request.params.id);
+        const getOne = await Vehicles.findById(request.params.id);
 
         return reply({ items: getOne });
     }
@@ -43,7 +43,7 @@ module.exports.create = {
         let data;
 
         try {
-            data = await People.create(request.payload);
+            data = await Vehicles.create(request.payload);
         } catch (err) {
             return reply({ result: 'it was not possible to create your document', err })
                 .code(400);
@@ -52,7 +52,7 @@ module.exports.create = {
         return reply({ result: { message: 'success on creating new document', data } }).code(201);
     },
     validate: {
-        payload: peoplePostPayloadValidation
+        payload: vehiclesPostPayloadValidation
     }
 };
 
@@ -61,7 +61,7 @@ module.exports.edit = {
         let data;
 
         try {
-            data = await People.update({ _id: request.params.id }, request.payload);
+            data = await Vehicles.update({ _id: request.params.id }, request.payload);
         } catch (err) {
             return reply({ result: 'it was not possible to update your document', err })
                 .code(400);
@@ -70,7 +70,7 @@ module.exports.edit = {
         return reply({ result: { message: 'success on updating', data } }).code(201);
     },
     validate: {
-        payload: peoplePostPayloadValidation
+        payload: vehiclesPostPayloadValidation
     }
 };
 
@@ -93,7 +93,7 @@ module.exports.import = {
         const list = externalData.results ? externalData.results : externalData;
 
         try {
-            data = await People.create(list);
+            data = await Vehicles.create(list);
         } catch (err) {
             return reply({ result: 'it was not possible to create your documents', err })
                 .code(400);
