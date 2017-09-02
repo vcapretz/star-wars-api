@@ -56,16 +56,14 @@ module.exports.create = {
 
 module.exports.edit = {
     handler: async (request, reply) => {
-        let data;
-
         try {
-            data = await Films.update({ _id: request.params.id }, request.payload);
+            await Films.update({ _id: request.params.id }, request.payload);
         } catch (err) {
             return reply({ result: 'it was not possible to update your document', err })
                 .code(400);
         }
 
-        return reply({ result: { message: 'success on updating', data } }).code(201);
+        return reply({ result: { message: 'success on updating', data: await Films.findById(request.params.id) } }).code(201);
     },
     validate: {
         payload: filmsPostPayloadValidation
