@@ -52,6 +52,8 @@ npm start
 docker-compose build && docker-compose up
 ```
 
+- It will run on `http://localhost:5000`
+
 ## Testing and lint
 
 - for linting only:
@@ -64,6 +66,8 @@ npm run lint
 npm run test
 ```
 
+- It will run on `http://localhost:5000`
+
 ## Project structure
 ```
 .
@@ -72,10 +76,10 @@ npm run test
 ├── src/
 |   ├── handlers/
 |   |   ├── index.js  * Index handler
-|   |   └── people.js * People handler
+|   |   └── xyz.js    * Handler for each entity available
 |   ├── models/
 |   |   ├── index.js  * Exports all models
-|   |   └── people.js * People mongoose schema
+|   |   └── xyz.js    * Mongoose schema for each entity available
 |   ├── config.js     * Config file
 |   ├── database.js   * Handle database connection
 |   └── index.js      * Register REST routes
