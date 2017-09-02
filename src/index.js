@@ -7,7 +7,7 @@ exports.register = (plugin, options, next) => {
         { method: 'GET', path: '/people', config: peopleRoutes.getAll },
         { method: 'GET', path: '/people/{id}', config: peopleRoutes.getById },
         { method: 'POST', path: '/people', config: peopleRoutes.create },
-        { method: 'PUT', path: '/people', config: peopleRoutes.edit },
+        { method: 'PUT', path: '/people/{id}', config: peopleRoutes.edit },
         { method: 'POST', path: '/people/import', config: peopleRoutes.import },
         { method: 'GET', path: '/{path*}', config: indexRoutes.notFound }
     ]);

@@ -6,6 +6,8 @@ const { People } = require('../models');
 const peoplePostPayloadValidation = {
     /* eslint-disable camelcase */
     birth_year: Joi.string().required(),
+    created: Joi.string().optional(),
+    edited: Joi.string().optional(),
     eye_color: Joi.string().required(),
     films: Joi.array().required(),
     gender: Joi.string().required(),
@@ -57,10 +59,9 @@ module.exports.create = {
 module.exports.edit = {
     handler: async (request, reply) => {
         let data;
-        const { name } = request.payload;
 
         try {
-            data = await People.update({ name }, request.payload);
+            data = await People.update({ _id: request.params.id }, request.payload);
         } catch (err) {
             return reply({ result: 'it was not possible to update your document', err })
                 .code(400);
