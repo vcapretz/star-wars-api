@@ -1,10 +1,10 @@
 const Joi = require('joi');
 const rp = require('request-promise');
-const gju = require('geojson-utils');
 
 const { People } = require('../models');
 
 const peoplePostPayloadValidation = {
+    /* eslint-disable camelcase */
     birth_year: Joi.string().required(),
     eye_color: Joi.string().required(),
     films: Joi.array().required(),
@@ -18,7 +18,8 @@ const peoplePostPayloadValidation = {
     species: Joi.array().required(),
     starships: Joi.array().required(),
     url: Joi.string().required(),
-    vehicles: Joi.array().required(),
+    vehicles: Joi.array().required()
+    /* eslint-enable camelcase */
 };
 
 module.exports.getAll = {
@@ -57,7 +58,7 @@ module.exports.edit = {
     handler: async (request, reply) => {
         let data;
         const { name } = request.payload;
- 
+
         try {
             data = await People.update({ name }, request.payload);
         } catch (err) {
@@ -75,7 +76,6 @@ module.exports.edit = {
 module.exports.import = {
     handler: async (request, reply) => {
         let data;
-        let list;
 
         const externalData = await rp.get(request.payload.url, { encoding: 'utf-8', json: true });
 
@@ -89,7 +89,7 @@ module.exports.import = {
                 .code(400);
         }
 
-        list = externalData.results ? externalData.results : externalData;
+        const list = externalData.results ? externalData.results : externalData;
 
         try {
             data = await People.create(list);

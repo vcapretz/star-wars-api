@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const uniqueValidator = require('mongoose-unique-validator');
 
 const Schema = new mongoose.Schema({
+    /* eslint-disable camelcase */
     birth_year: {
         type: String,
         required: true
@@ -49,11 +50,12 @@ const Schema = new mongoose.Schema({
         type: Array
     },
     url: {
-        type: String,
+        type: String
     },
     vehicles: {
         type: Array
-    },
+    }
+    /* eslint-enable camelcase */
 }, {
     timestamps: {
         createdAt: 'created',
