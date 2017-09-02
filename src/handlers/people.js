@@ -19,7 +19,7 @@ const peoplePostPayloadValidation = {
     skin_color: Joi.string().required(),
     species: Joi.array().optional(),
     starships: Joi.array().optional(),
-    url: Joi.string().required(),
+    url: Joi.string().optional(),
     vehicles: Joi.array().optional()
     /* eslint-enable camelcase */
 };

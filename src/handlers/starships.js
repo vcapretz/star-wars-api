@@ -20,7 +20,7 @@ const starshipsPostPayloadValidation = {
     name: Joi.string().required(),
     passengers: Joi.string().required(),
     starship_class: Joi.string().required(),
-    url: Joi.string().required(),
+    url: Joi.string().optional(),
     films: Joi.array().optional(),
     pilots: Joi.array().optional()
     /* eslint-enable camelcase */

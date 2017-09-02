@@ -18,7 +18,7 @@ const filmsPostPayloadValidation = {
     producer: Joi.string().required(),
     release_date: Joi.string().required(),
     title: Joi.string().required(),
-    url: Joi.string().required()
+    url: Joi.string().optional()
     /* eslint-enable camelcase */
 };
 

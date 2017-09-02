@@ -16,7 +16,7 @@ const planetsPostPayloadValidation = {
     rotation_period: Joi.string().required(),
     surface_water: Joi.string().required(),
     terrain: Joi.string().required(),
-    url: Joi.string().required(),
+    url: Joi.string().optional(),
     films: Joi.array().required(),
     residents: Joi.array().required()
     /* eslint-enable camelcase */
