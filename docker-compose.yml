@@ -1,0 +1,18 @@
+version: '2'
+services:
+    api:
+        build: .
+        depends_on:
+            - mongo
+        links:
+            - mongo
+        environment:
+            MONGO_URL: mongodb://mongo/beer-api
+        ports:
+            - "5000:5000"
+        volumes:
+            - "./src:/app/src"
+        entrypoint: "npm run start"
+
+    mongo:
+        image: mongo

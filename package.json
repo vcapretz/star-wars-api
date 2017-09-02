@@ -1,0 +1,54 @@
+{
+  "name": "beer-api",
+  "version": "0.0.1",
+  "description": "Find points of sale near your location to get beer!",
+  "main": "server.js",
+  "scripts": {
+    "lint": "xo --quiet",
+    "test": "npm run lint && lab -v --leaks",
+    "start": "node server.js",
+    "watch": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vcapretz/beer-api.git"
+  },
+  "keywords": [
+    "Node.js",
+    "Hapi",
+    "JavaScript",
+    "API"
+  ],
+  "author": "vcapretz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vcapretz/beer-api/issues"
+  },
+  "homepage": "https://github.com/vcapretz/beer-api#readme",
+  "devDependencies": {
+    "blipp": "^2.3.0",
+    "code": "^4.1.0",
+    "lab": "^14.2.0",
+    "nodemon": "^1.11.0",
+    "xo": "^0.18.2"
+  },
+  "dependencies": {
+    "geojson-utils": "^1.1.0",
+    "glue": "^4.2.0",
+    "hapi": "^16.5.2",
+    "joi": "^10.6.0",
+    "mongoose": "^4.11.7",
+    "mongoose-unique-validator": "^1.0.5",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.1"
+  },
+  "xo": {
+    "space": 4,
+    "rules": {
+      "object-curly-spacing": [
+        "error",
+        "always"
+      ]
+    }
+  }
+}
