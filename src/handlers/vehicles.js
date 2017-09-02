@@ -72,6 +72,19 @@ module.exports.edit = {
     }
 };
 
+module.exports.delete = {
+    handler: async (request, reply) => {
+        try {
+            await Vehicles.findByIdAndRemove(request.params.id);
+        } catch (err) {
+            return reply({ result: 'it was not possible to delete your document', err })
+                .code(400);
+        }
+
+        return reply({ result: { message: 'success on deleting' } }).code(201);
+    }
+};
+
 module.exports.import = {
     handler: async (request, reply) => {
         let data;
