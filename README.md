@@ -80,6 +80,8 @@ npm run test
 |   ├── models/
 |   |   ├── index.js  * Exports all models
 |   |   └── xyz.js    * Mongoose schema for each entity available
+|   ├── routes/
+|   |   └── xyz.js    * Routes exports for each entity
 |   ├── config.js     * Config file
 |   ├── database.js   * Handle database connection
 |   └── index.js      * Register REST routes
